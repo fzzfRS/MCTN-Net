@@ -1,0 +1,76 @@
+{
+    "seed": 7,
+    "task1_classes": 5,
+    "task2_classes": 37,
+    "task1_weight": 1,
+    "task2_weight": 1,
+    "train_batch_size":8,
+    "val_batch_size": 4,
+    "test_batch_size": 1,
+    "train_dataset": {
+        "MCTNDataset":{
+            "dir": "./data/MCTNDataset/train/",
+            "file": "./data/MCTNDataset/train.txt",
+            "image_suffix": ".tif",
+            "gt_suffix": ".tif",
+            "crop_size": 256
+        },
+        "crop_size": 512,
+        "augmentation": true,
+        "mean" : "[0.36736786, 0.3667163, 0.3006317]",
+        "std" : "[0.18354674, 0.16192731, 0.15721406]",
+        "normalize_type": "Mean",
+        "thresh": 0.76,
+        "angle_theta": 10,
+        "angle_bin": 10
+    },
+    "val_dataset": {
+        "MCTNDataset":{
+            "dir": "./data/MCTNDataset/val/",
+            "file": "./data/MCTNDataset/val.txt",
+            "image_suffix": ".tif",
+            "gt_suffix": ".tif",
+            "crop_size": 512
+        },
+        "crop_size": 512,
+        "augmentation": false,
+        "mean" : "[0.3535862, 0.35910195, 0.2867302]",
+        "std" : "[0.17593531, 0.14943825, 0.14183009]",
+        "normalize_type": "Mean",
+        "thresh": 0.76,
+        "angle_theta": 10,
+        "angle_bin": 10
+    },
+    "test_dataset": {
+        "MCTNDataset":{
+            "dir": "./data/MCTNDataset/test/",
+            "file": "./data/MCTNDataset/test.txt",
+            "image_suffix": ".tif",
+            "gt_suffix": ".tif",
+            "crop_size": 512
+        },
+        "crop_size": 512,
+        "augmentation": false,
+        "mean" : "[0.35789964, 0.36035475, 0.28715163]",
+        "std" : "[0.1717232, 0.14658876, 0.14161828]",
+        "normalize_type": "Mean",
+        "thresh": 0.76,
+        "angle_theta": 10,
+        "angle_bin": 10
+    },
+    "optimizer": {
+        "lr": 0.01,
+        "d_lr": 0.0001,
+        "lr_step": 0.1,
+        "lr_drop_epoch": "[60,100,130]"
+    },
+    "trainer": {
+        "total_epochs": 150,
+        "save_dir": "./checkpoint/MCTNNet/",
+        "iter_size": 1,
+        "val_freq": 2
+    },
+    "tester":{
+        "save_dir": "./checkpoint/MCTNNet/"
+    }
+}
